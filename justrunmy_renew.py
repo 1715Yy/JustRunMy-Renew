@@ -335,14 +335,21 @@ def main():
     print("   JustRunMy.app 自动登录与续期脚本")
     print("=" * 50)
     
-    proxy_str = "http://127.0.0.1:8080"
-    print(f"🔗 挂载 Gost 代理: {proxy_str}")
+    use_proxy = os.environ.get("USE_PROXY", "false").lower() == "true"
+    sb_kwargs = {"uc": True, "test": True, "headless": False}
     
-    with SB(uc=True, test=True, headless=False, proxy=proxy_str) as sb:
+    if use_proxy:
+        proxy_str = "http://127.0.0.1:8080"
+        print(f"🔗 挂载 Gost 代理: {proxy_str}")
+        sb_kwargs["proxy"] = proxy_str
+    else:
+        print("🌐 未使用代理，直连访问")
+    
+    with SB(**sb_kwargs) as sb:
         print("✅ 浏览器已启动")
         try:
             sb.open("https://api.ipify.org/?format=json")
-            print(f"🌐 代理出口真实 IP: {sb.get_text('body')}")
+            print(f"🌐 当前出口真实 IP: {sb.get_text('body')}")
         except Exception:
             pass
 
