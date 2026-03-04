@@ -14,8 +14,8 @@ DOMAIN    = "justrunmy.app"
 # ============================================================
 #  环境变量与全局变量
 # ============================================================
-EMAIL        = os.environ.get("JUSTRUNMY_EMAIL")
-PASSWORD     = os.environ.get("JUSTRUNMY_PASSWORD")
+EMAIL        = os.environ.get("1715450144@qq.com")
+PASSWORD     = os.environ.get("1715450144@qq.com")
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN")
 TG_CHAT_ID   = os.environ.get("TG_CHAT_ID")
 
