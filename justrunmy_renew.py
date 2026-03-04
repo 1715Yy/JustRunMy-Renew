@@ -25,7 +25,7 @@ if not EMAIL or not PASSWORD:
     sys.exit(1)
 
 # 全局变量，用于动态保存网页上抓取到的应用名称
-DYNAMIC_APP_NAME = "未知应用"
+DYNAMIC_APP_NAME = "mcbot"
 
 # ============================================================
 #  Telegram 推送模块
